@@ -29,31 +29,3 @@ export const Post = ({ post }: PostProps) => {
 };
 
 export default Post;
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const prismic = getPrismicClient();
-
-  const { slug } = params;
-
-  const response = await prismic.getByUID("post", String(slug), {});
-
-  const post = {
-    slud: response.uid,
-    title: response.data.title,
-    content: response.data.content,
-    updatedAt: new Date(response.data.last_publication_date).toLocaleDateString(
-      "pt-BR",
-      {
-        day: "2-digit",
-        month: "long",
-        year: "numeric",
-      }
-    ),
-  };
-
-  console.log(response.data.content);
-
-  return {
-    props: { post },
-  };
-};

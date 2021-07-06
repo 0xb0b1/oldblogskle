@@ -63,9 +63,6 @@ export default function Home({ posts }: PostsProps) {
               mt="10"
               w="100%"
               h="100%"
-              bg="gray.900"
-              boxShadow="lg"
-              rounded="lg"
               p="4"
               maxWidth={[320, 420, 520]}
               maxHeight={[320, 420, 520]}
